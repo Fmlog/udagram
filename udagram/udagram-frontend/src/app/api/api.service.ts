@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest, HttpEvent } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import { environment } from '../../environments/environment.prod';
 import { map } from 'rxjs/operators';
 
 const API_HOST = environment.apiHost;
@@ -63,7 +63,7 @@ export class ApiService {
                                     headers: headers,
                                     reportProgress: true, // track progress
                                   });
-
+     console.log(req)                             
     return new Promise ( resolve => {
         this.http.request(req).subscribe((resp) => {
         if (resp && (<any> resp).status && (<any> resp).status === 200) {
