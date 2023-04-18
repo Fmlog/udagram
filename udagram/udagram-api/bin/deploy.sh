@@ -1,6 +1,12 @@
+#!/usr/bin/env bash
 set -x
 set -e
 
+AWS_CONFIG_FILE=$HOME/.aws/config
+
+mkdir $HOME/.aws
+touch $AWS_CONFIG_FILE
+chmod 600 $AWS_CONFIG_FILE
 eb use udagram-dev2 
 
 eb setenv POSTGRES_HOST=$POSTGRES_HOST
@@ -16,4 +22,4 @@ eb setenv POSTGRES_HOST=$POSTGRES_HOST
           AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
           URL=$URL
 
-eb deploy udagram-dev2 
+eb deploy udagram-dev2
