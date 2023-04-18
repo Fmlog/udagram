@@ -7,7 +7,11 @@ AWS_CONFIG_FILE=$HOME/.aws/config
 mkdir $HOME/.aws
 touch $AWS_CONFIG_FILE
 chmod 600 $AWS_CONFIG_FILE
-eb use udagram-dev2 
+
+
+echo "[profile eb-cli]"                              > $AWS_CONFIG_FILE
+echo "aws_access_key_id=$AWS_ACCESS_KEY_ID"         >> $AWS_CONFIG_FILE
+echo "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" >> $AWS_CONFIG_FILE
 
 eb setenv POSTGRES_HOST=$POSTGRES_HOST
           POSTGRES_DB=$POSTGRES_DB
@@ -21,5 +25,6 @@ eb setenv POSTGRES_HOST=$POSTGRES_HOST
           AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
           AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
           URL=$URL
+eb use udagram-dev2 
 
 eb deploy udagram-dev2
