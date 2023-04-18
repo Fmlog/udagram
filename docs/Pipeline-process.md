@@ -2,6 +2,8 @@
 This is an overview of the steps that are taken by CircleCI, the CI/CD platform used for this project.  
 On every push to the online repository the CircleCI platform perfoms the following steps:
 
+![Pipeline](pipeline.jpg)
+
 ## Flow
 1. The pipeline installs the orbs required for hosting the application: node, eb, aws-cli
 2. The pipelines starts with the first job: installs the node.js version required for the application.
